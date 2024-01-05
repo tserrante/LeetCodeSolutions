@@ -27,7 +27,7 @@ public class Program
        10009998          
     */
 
-    public static LinkedList<int> AddTwoNumbers(LinkedListNode<int> l1, LinkedListNode<int> l2)
+    public static LinkedList<int> AddTwoLists(LinkedListNode<int> l1, LinkedListNode<int> l2)
     {
         int l1AsInt = default;
         int l2AsInt = default;
