@@ -1,22 +1,25 @@
-﻿namespace AddTwoNumbers;
+﻿using System;
+
+namespace AddTwoNumbers;
+
+public class ListNode
+{
+    public int val;
+    public ListNode next;
+    public ListNode(int val = 0, ListNode next = null)
+    {
+        this.val = val;
+        this.next = next;
+    }
+}
 
 public class Program
 {
     static void Main()
     {
-        LinkedList<int> l1 = new LinkedList<int>(new int[] {9,9,9,9,9,9,9});
-        LinkedList<int> l2 = new LinkedList<int>(new int[] {9,9,9,9});
-
-        LinkedList<int> sumOfL1L2 = AddTwoNumbers(l1.First, l2.First);
         
-        System.Console.WriteLine(sumOfL1L2);
-        //LinkedListNode<int> currentNode = sumOfL1L2.First;
 
-        // while(currentNode != null)
-        // {
-        //     Console.WriteLine(currentNode.Value);
-        //     currentNode = currentNode.Next;
-        // }        
+
     }
     
     /**
@@ -27,47 +30,56 @@ public class Program
        10009998          
     */
 
-    public static LinkedList<int> AddTwoLists(LinkedListNode<int> l1, LinkedListNode<int> l2)
+    public static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
     {
-        int l1AsInt = default;
-        int l2AsInt = default;
+        // we create a blank ListNode with 0 value
+        ListNode result = new ListNode(0);
 
-        int count = 1;
-        while(l1 != null )
+        // take a blank listnode in head for our operation
+        ListNode head = result;
+
+        // take two variable sum for sum two value and carry for carried out sum carry
+        int sum = 0;
+        int carry = 0;
+
+        // while loop until both list node is not null
+        while (l1 != null || l2 != null)
         {
-            l1AsInt += l1.Value * count;
-            count *= 10; 
-            l1 = l1.Next;
+            // if l1 null than replace with blank node
+            if (l1 == null)
+                l1 = new ListNode(0);
+
+            // if l2 is null than replace with blannode
+            if (l2 == null)
+                l2 = new ListNode(0);
+
+            // now we sum the value of listnode and previous carry and remove carry and add in listnode
+            sum = (l1.val + l2.val + carry) % 10;
+            result.next = new ListNode(sum);
+
+            // now we carry a carried in carry variable from sum of both listnode value and previous  carry 
+            carry = (l1.val + l2.val + carry) / 10;
+            l1 = l1.next;
+            l2 = l2.next;
+            result = result.next;
         }
 
-        count = 1;
-        while(l2 != null )
-        {
-            l2AsInt += l2.Value * count;
-            count *= 10; 
-            l2 = l2.Next;
-        }
-        
-        int sumOfLists = l1AsInt + l2AsInt;
-        string sumAsString = sumOfLists.ToString();
-        
-        System.Console.WriteLine("Sum of Lists: {0}", sumAsString);
-        System.Console.WriteLine("Length of sum: {0}", sumAsString.Length);
-        LinkedList<int> returnedList = new LinkedList<int>();
-        
-        for(int i = 0; i < sumAsString.Length; i++)
-        {
-            // int num = Convert.ToInt32(sumOfLists / Math.Pow(10, i));
-            // Console.WriteLine("power: {0}\tval: {1}", i, num);
-            // returnedList.AddLast(new LinkedListNode<int>(num));
-            //(sumOfLists / Math.Pow(10, i));
-            returnedList.AddFirst(int.Parse(sumAsString[i].ToString()));
-        }
-        return returnedList;
+        // if we carry is greater than 0 than add at last
+        if (carry > 0)
+            result.next = new ListNode(carry);
+
+        // than we return listnode with remove first blank listnode
+        return head.next;
     }
 
-    public static LinkedListNode<int> AddTwoNumbers(LinkedListNode<int> l1, LinkedListNode<int> l2)
+    public static void PrintList(ListNode node)
     {
-        
+        string sum = string.Empty;
+        while(node != null) 
+        {
+            sum += node.val.ToString();
+            node = node.next;
+        }
+        Console.WriteLine("printing in order... : " + sum);
     }
 }
