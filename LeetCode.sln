@@ -3,19 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1_TwoSum", "1_TwoSum\1_TwoSum.csproj", "{346F88C3-5D6F-47DB-90A5-756E3F114E16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1_TwoSum", "1_TwoSum\1_TwoSum.csproj", "{346F88C3-5D6F-47DB-90A5-756E3F114E16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_AddTwoNumbers", "2_AddTwoNumbers\2_AddTwoNumbers.csproj", "{598B7A23-506E-4FCF-B238-CBECCDF03D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2_AddTwoNumbers", "2_AddTwoNumbers\2_AddTwoNumbers.csproj", "{598B7A23-506E-4FCF-B238-CBECCDF03D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LengthOfLongestSubstring", "3_LengthOfLongestSubstring\LengthOfLongestSubstring.csproj", "{1D6BB364-00B8-408C-A382-D4D637FB63E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3_LengthOfLongestSubstring", "3_LengthOfLongestSubstring\3_LengthOfLongestSubstring.csproj", "{1D6BB364-00B8-408C-A382-D4D637FB63E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9_PalindromeNumber", "9_PalindromeNumber\9_PalindromeNumber.csproj", "{CF430D46-E752-4C74-A541-CFA258B8335A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{346F88C3-5D6F-47DB-90A5-756E3F114E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,15 @@ Global
 		{1D6BB364-00B8-408C-A382-D4D637FB63E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D6BB364-00B8-408C-A382-D4D637FB63E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D6BB364-00B8-408C-A382-D4D637FB63E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF430D46-E752-4C74-A541-CFA258B8335A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF430D46-E752-4C74-A541-CFA258B8335A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF430D46-E752-4C74-A541-CFA258B8335A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF430D46-E752-4C74-A541-CFA258B8335A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C4B3EB0-78E1-474F-BB07-3B23BC82038B}
 	EndGlobalSection
 EndGlobal
