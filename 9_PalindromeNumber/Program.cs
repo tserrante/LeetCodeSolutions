@@ -36,6 +36,42 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        // negative numbers always return false
+        // single digit numbers either always true or false
 
+        // double digit
+        // divide by 
+        // 10 - false
+        // 11 - true
+        // ... false
+        // 20 - false
+        // 21 - false
+        // 22 - true
+
+        // triple digits
+        // 100 - false
+        // 101 - true
+        // ... false
+        // 111 - true
+
+    }
+
+    public bool IsPalindrome(int n)
+    {
+        if (n < 0) return false; 
+
+        if(n <= 9) return true;
+
+        if(n <= 99)
+        {
+            int r = n / 10;
+
+           // if(r == n % 10)
+        }
+
+        if(n <= 230)
+        {
+
+        }
     }
 }

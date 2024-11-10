@@ -5,6 +5,15 @@
         },
         {
             "path": "2_AddTwoNumbers"
+        },
+        {
+            "path": "3_LengthOfLongestSubstring"
+        },
+        {
+            "path": "9_PalindromeNumber"
+        },
+        {
+            "path": "Scratch"
         }
     ]
 }
