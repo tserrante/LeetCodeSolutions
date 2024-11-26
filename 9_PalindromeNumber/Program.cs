@@ -53,25 +53,21 @@ public class Program
         // 101 - true
         // ... false
         // 111 - true
-
+        bool val1 = IsPalindromeUsingStringMethod(5);
+        bool val2 = IsPalindromeUsingStringMethod(11);
+        bool val3 = IsPalindromeUsingStringMethod(10);
+        bool val4 = IsPalindromeUsingStringMethod(-11);
     }
 
-    public bool IsPalindrome(int n)
+    public static bool IsPalindromeUsingStringMethod(int n)
     {
         if (n < 0) return false; 
+        
+        if(n < 10) return true;
 
-        if(n <= 9) return true;
+        char[] num = n.ToString().ToCharArray();
 
-        if(n <= 99)
-        {
-            int r = n / 10;
+        return false;
 
-           // if(r == n % 10)
-        }
-
-        if(n <= 230)
-        {
-
-        }
     }
 }
