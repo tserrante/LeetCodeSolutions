@@ -36,27 +36,18 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // negative numbers always return false
-        // single digit numbers either always true or false
+        Console.WriteLine("Welcome to Palindrome Number Checker. Enter 'Q' at anytime to quit");
+        Console.Write("Enter a number to see if it is a palindrome: ");
+        string input = Console.ReadLine();
 
-        // double digit
-        // divide by 
-        // 10 - false
-        // 11 - true
-        // ... false
-        // 20 - false
-        // 21 - false
-        // 22 - true
+        while(!input.ToUpper().Equals("Q") || !string.IsNullOrWhiteSpace(input))
+        {
+            Console.WriteLine($"{input} is palindrome: {IsPalindromeUsingStringMethod(int.Parse(input))}");
+            
+            Console.Write("Enter a number to see if it is a palindrome: ");
+            input = Console.ReadLine();
 
-        // triple digits
-        // 100 - false
-        // 101 - true
-        // ... false
-        // 111 - true
-        bool val1 = IsPalindromeUsingStringMethod(5);
-        bool val2 = IsPalindromeUsingStringMethod(11);
-        bool val3 = IsPalindromeUsingStringMethod(10);
-        bool val4 = IsPalindromeUsingStringMethod(-11);
+        }
     }
 
     public static bool IsPalindromeUsingStringMethod(int n)
@@ -65,9 +56,21 @@ public class Program
         
         if(n < 10) return true;
 
-        char[] num = n.ToString().ToCharArray();
-
-        return false;
-
+        //char[] num = n.ToString().ToCharArray();
+        string num = n.ToString();
+        for(int i = 0; i < num.Length; i++)
+        {
+            int leftNum = num[i];
+            int rightNum = num[num.Length - 1 - i];
+            if(leftNum != rightNum)
+            {
+                return false;
+            }
+            if(i+1 == num.Length - 1 - i)
+            {
+                break;
+            }
+        }
+        return true;
     }
 }
