@@ -42,17 +42,51 @@ public class Program
 
         while(!input.ToUpper().Equals("Q") && !string.IsNullOrWhiteSpace(input))
         {
-            Console.WriteLine($"{input} is palindrome: {IsPalindromeUsingStringMethod(int.Parse(input))}");
+            Console.WriteLine($"{input} is palindrome: {IsPalidromeArithmeticMethod(int.Parse(input))}");
             
             Console.Write("Enter a number to see if it is a palindrome: ");
             input = Console.ReadLine();
         }
     }
 
-    // public static bool IsPalidromeArithmeticMethod(int n)
-    // {
+    public static bool IsPalidromeArithmeticMethod(int n)
+    {
+        if (n < 0) return false; 
+        
+        if(n < 10) return true;
 
-    // }
+        int reverse = 0;
+        int nCopy = n;
+        while(n > 0)
+        {
+            reverse *= 10 + n % 10;
+            n /= 10;
+        }
+        return reverse == nCopy;
+    }
+
+    public static bool IsPalindromeUsingStringMethod2(int n)
+    {
+        if (n < 0) return false; 
+        
+        if(n < 10) return true;
+
+        string num = n.ToString();
+
+        int l = 0;
+        int r = num.Length - 1;
+
+        while(l < r)
+        {
+            if(!num[l].Equals(num[r]))
+            {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
 
     public static bool IsPalindromeUsingStringMethod(int n)
     {
