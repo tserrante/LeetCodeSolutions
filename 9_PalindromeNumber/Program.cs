@@ -40,15 +40,19 @@ public class Program
         Console.Write("Enter a number to see if it is a palindrome: ");
         string input = Console.ReadLine();
 
-        while(!input.ToUpper().Equals("Q") || !string.IsNullOrWhiteSpace(input))
+        while(!input.ToUpper().Equals("Q") && !string.IsNullOrWhiteSpace(input))
         {
             Console.WriteLine($"{input} is palindrome: {IsPalindromeUsingStringMethod(int.Parse(input))}");
             
             Console.Write("Enter a number to see if it is a palindrome: ");
             input = Console.ReadLine();
-
         }
     }
+
+    // public static bool IsPalidromeArithmeticMethod(int n)
+    // {
+
+    // }
 
     public static bool IsPalindromeUsingStringMethod(int n)
     {
@@ -60,9 +64,9 @@ public class Program
         string num = n.ToString();
         for(int i = 0; i < num.Length; i++)
         {
-            int leftNum = num[i];
-            int rightNum = num[num.Length - 1 - i];
-            if(leftNum != rightNum)
+            char leftNum = num[i];
+            char rightNum = num[num.Length - 1 - i];
+            if(!leftNum.Equals(rightNum))
             {
                 return false;
             }
