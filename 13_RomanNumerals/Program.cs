@@ -9,34 +9,59 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine($"MCMXCIV: {RomanToIntDictionaryMethod("MCMXCIV")}");
-        Console.WriteLine($"III: {RomanToIntDictionaryMethod("III")}");
-        Console.WriteLine($"LVIII: {RomanToIntDictionaryMethod("LVIII")}");
+        Console.WriteLine($"MCMXCIV: {RomanToIntMethod3("MCMXCIV")}");
+        Console.WriteLine($"III: {RomanToIntMethod3("III")}");
+        Console.WriteLine($"LVIII: {RomanToIntMethod3("LVIII")}");
+    }
+    private static int CalcScale(char c, char a1, char a2)
+    {
+        return (c == a1 || c == a2) ? -1 : 1;
+    }
+    public static int RomanToIntMethod3(string s)
+    {
+        int result = 0;
+
+        for(int i = 0; i < s.Length; i ++)
+        {
+            char nextChar = (i + 1 < s.Length) ? s[i + 1] : '\0';
+
+            switch (s[i])
+            {
+                case 'M': result += 1000; break;
+                case 'D': result += 500; break;
+                case 'C': result += 100 * CalcScale(nextChar, 'M', 'D'); break;
+                case 'L': result += 50; break;
+                case 'X': result += 10 * CalcScale(nextChar, 'C', 'L'); break;
+                case 'V': result += 5; break;
+                case 'I': result += 1 * CalcScale(nextChar, 'X', 'V'); break;
+            }
+        }
+        return result;
     }
 
-    public static int RomanToInt(string s)
+    public static int RomanToIntDictionaryMethod2(string s)
     {
+        Dictionary<char, int> RomanToIntDict = new Dictionary<char, int>{
+            {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50},
+            {'C', 100}, {'D', 500},{'M', 1000}
+        };
+
+        if(s.Length < 2) return RomanToIntDict[s[0]];
+
         int sum = 0;
-        int i = 0;
 
-        while(i < s.Length)
+        for(int i = 0; i < s.Length - 1; i++)
         {
-            if(i + 1 < s.Length)
+            if(RomanToIntDict[s[i]] < RomanToIntDict[s[i + 1]])
             {
-                if(s[i] == 'I' && s[i + 1] == 'V')
-                {
-                    sum += 4;
-                }
-                if(s[i] == 'I' && s[i + 1] == 'X')
-                {
-                    sum += 9;
-                }
-                
+                sum -= RomanToIntDict[s[i]];
             }
-            i++;
+            else
+            {
+                sum += RomanToIntDict[s[i]];
+            }
         }
-
-        return sum;
+        return sum + RomanToIntDict[s[s.Length - 1]];
     }
 
     public static int RomanToIntDictionaryMethod(string s)
