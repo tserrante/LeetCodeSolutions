@@ -14,6 +14,31 @@ public class Program
         Console.WriteLine($"LVIII: {RomanToIntDictionaryMethod("LVIII")}");
     }
 
+    public static int RomanToInt(string s)
+    {
+        int sum = 0;
+        int i = 0;
+
+        while(i < s.Length)
+        {
+            if(i + 1 < s.Length)
+            {
+                if(s[i] == 'I' && s[i + 1] == 'V')
+                {
+                    sum += 4;
+                }
+                if(s[i] == 'I' && s[i + 1] == 'X')
+                {
+                    sum += 9;
+                }
+                
+            }
+            i++;
+        }
+
+        return sum;
+    }
+
     public static int RomanToIntDictionaryMethod(string s)
     {
         Dictionary<string, int> RomanToIntDict = new Dictionary<string, int>{
