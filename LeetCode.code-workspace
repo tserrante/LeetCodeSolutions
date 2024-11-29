@@ -1,22 +1,28 @@
 {
 	"folders": [
         {
+            "name": "1_TwoSum",
             "path": "1_TwoSum"
         },
         {
+            "name": "2_AddTwoNumbers",
             "path": "2_AddTwoNumbers"
         },
         {
+            "name": "3_LengthOfLongestSubstring",
             "path": "3_LengthOfLongestSubstring"
         },
         {
+            "name": "9_PalindromeNumber",
             "path": "9_PalindromeNumber"
         },
         {
-            "path": "Scratch"
+            "name": "12_IntegerToRoman",
+            "path": "12_IntegerToRoman"
         },
         {
-            "path": "13_RomanNumerals"
+            "name": "13_RomanToInteger",
+            "path": "13_RomanToInteger"
         }
     ]
 }
