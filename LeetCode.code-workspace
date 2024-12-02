@@ -23,6 +23,9 @@
         {
             "name": "13_RomanToInteger",
             "path": "13_RomanToInteger"
+        },
+        {
+            "path": "20_ValidParenthesis"
         }
     ]
 }
