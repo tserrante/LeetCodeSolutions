@@ -10,23 +10,29 @@ public class Program
 
     public static ListNode MergeTwoLists(ListNode list1, ListNode list2) 
     {
-        ListNode head = list1;   
-        ListNode currList1 = list1;
+        ListNode head = new ListNode(-1);
+        ListNode current = head;
         
-        while(currList1.next != null)
+        while(list1 != null & list2 != null)
         {
-            ListNode currList2 = list2;
-
-            while(currList2.next != null)
+            if(list1.val <= list2.val)
             {
-                if(currList2.val >= currList1.val)
-                {
-
-                }
-                currList2 = currList2.next;
+                current.next = list1;
+                list1 = list1.next;
             }
-            currList1 = currList1.next;
+            else
+            {
+                current.next = list2;
+                list2 = list2.next;
+            }
+            current = current.next;
         }
-        return head;
+        
+        if(list1 != null)
+            current.next = list1;
+        else
+            current.next = list2;
+
+        return head.next;
     }
 }
