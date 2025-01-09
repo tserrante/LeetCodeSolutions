@@ -15,24 +15,24 @@ public class Program
         Console.WriteLine($"testWtf -> {LongestPalindrome(testWtf)}");
     }
         // brute force, too slow!  Fails on long input like testWtf
-        public static string LongestPalindrome(string s) 
+    public static string LongestPalindrome(string s) 
+    {
+        HashSet<string> palindromes = new HashSet<string>();
+        
+        for(int i = 0; i < s.Length; i++)
         {
-            HashSet<string> palindromes = new HashSet<string>();
-            
-            for(int i = 0; i < s.Length; i++)
+            for(int j = i + 1; j <= s.Length; j++)
             {
-                for(int j = i + 1; j <= s.Length; j++)
+                string str = s.Substring(i, j - i);
+                char[] revChars = str.ToCharArray();
+                Array.Reverse(revChars);
+                string revStr = new string(revChars);
+                if(str.Equals(revStr))
                 {
-                    string str = s.Substring(i, j - i);
-                    char[] revChars = str.ToCharArray();
-                    Array.Reverse(revChars);
-                    string revStr = new string(revChars);
-                    if(str.Equals(revStr))
-                    {
-                        palindromes.Add(str);
-                    }
+                    palindromes.Add(str);
                 }
             }
-            return palindromes.Aggregate("", (max, curr) => max.Length > curr.Length ? max : curr);
         }
+        return palindromes.Aggregate("", (max, curr) => max.Length > curr.Length ? max : curr);
+    }
 }
