@@ -13,6 +13,10 @@
             "path": "3_LengthOfLongestSubstring"
         },
         {
+            "name": "5_LongestPalindromicSubstring",
+            "path": "5_LongestPalindromicSubstring"
+        },
+        {
             "name": "9_PalindromeNumber",
             "path": "9_PalindromeNumber"
         },
@@ -25,13 +29,12 @@
             "path": "13_RomanToInteger"
         },
         {
+            "name": "20_ValidParenthesis",
             "path": "20_ValidParenthesis"
         },
         {
+            "name": "21_MergeTwoSortedLists",
             "path": "21_MergeTwoSortedLists"
-        },
-        {
-            "path": "5_LongestPalindromicSubstring"
         }
     ]
 }
