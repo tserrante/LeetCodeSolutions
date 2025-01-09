@@ -29,6 +29,9 @@
         },
         {
             "path": "21_MergeTwoSortedLists"
+        },
+        {
+            "path": "5_LongestPalindromicSubstring"
         }
     ]
 }
