@@ -5,37 +5,38 @@ public class Program
 {
     public static void Main()
     {
-        
+        string[] strs1 = ["flower","flow","flight"];
+        string[] strs2 = ["dog","racecar","car"];
+        string[] strs3 = ["race", "racecar", "raccoon"];
+
+        Console.WriteLine(LongestCommonPrefix_HorizontalScanning(strs1));
+        Console.WriteLine(LongestCommonPrefix_HorizontalScanning(strs2));
+        Console.WriteLine(LongestCommonPrefix_HorizontalScanning(strs3));
+
+        Console.ReadLine();
     }
 
-    public static string LongestCommonPrefix(string[] strs) 
+    
+
+    // 8ms run time, beats 19.49%, 44.13 MB
+    public static string LongestCommonPrefix_HorizontalScanning(string[] strs)
     {
         if(strs.Length == 0)
             return string.Empty;
+        
+        string prefix = strs[0];
 
-        string prefix = string.Empty;
-        /*
-            read first character of current string and add to prefix
-                look for another string starting with that character
-                    if a match is found
-                        append char to prefix string
-                        check if other characters in that string match
-                        append if other characters found
-                    if a match is not found
-                        clear prefix string
-                    
-        */
-        for(int i = 0; i < strs.Length - 1; i++)
+        for(int i = 1; i < strs.Length; i++)
         {
-            //string currentString = strs[i];
-            //char currentChar = strs[i][0];
-            for(int j = i + 1; j < strs.Length; j++)
+            while(strs[i].IndexOf(prefix) != 0)
             {
-                if(strs[j][0] == strs[i][0])
+                prefix = prefix.Substring(0, prefix.Length-1);
+                if(prefix.Equals(string.Empty))
                 {
-                    
+                    return string.Empty;
                 }
             }
         }
+        return prefix;
     }
 }
